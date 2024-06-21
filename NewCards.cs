@@ -33,7 +33,7 @@ namespace NewCards
             Spells.MakeStygian();
             Spells.MakeAwoken();
             Poison2.BuildAndRegister();
-            //Monsters.Make(); //for testing
+            Monsters.MakeAwoken();
             //Testing.Make(); //for testing
         }
 

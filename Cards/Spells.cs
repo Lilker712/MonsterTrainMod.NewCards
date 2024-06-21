@@ -206,7 +206,7 @@ namespace NewCards.Cards
                 },
                 ClanID = VanillaClanIDs.Awoken,
 
-                CardID = NewCards.GUID + "Poison Sting",
+                CardID = NewCards.GUID + "PoisonSting",
                 Name = "Poison Sting",
                 AssetPath = "assets/TestCard.png",
 
