@@ -115,10 +115,10 @@ namespace NewCards.Cards
         public static void MakeAwoken()
         {
             var Efect0 = new CardEffectDataBuilder
-            {//Get 10 Gold.
+            {//Get 5 Gold.
                 EffectStateType = typeof(CardEffectRewardGold),
                 TargetTeamType = Team.Type.None,
-                ParamInt = 10,
+                ParamInt = 5,
             };
 
             var Efect1 = new CardEffectDataBuilder
@@ -129,11 +129,34 @@ namespace NewCards.Cards
                 ParamInt = 10,
             };
 
+            var Efect1b = new CardEffectDataBuilder
+            {//Deal 3 to the front enemy unit.
+                EffectStateType = typeof(CardEffectDamage),
+                TargetMode = TargetMode.FrontInRoom,
+                TargetTeamType = Team.Type.Heroes,
+                ParamInt = 3,
+            };
+
             var Efect2 = new CardEffectDataBuilder
             {//Draw +1 next turn.
                 EffectStateType = typeof(CardEffectDrawAdditionalNextTurn),
                 TargetMode = TargetMode.LastTargetedCharacters,
                 ParamInt = 1,
+            };
+
+            var Efect3 = new CardEffectDataBuilder
+            {//apply 4 poison
+                EffectStateType = typeof(CardEffectAddStatusEffect),
+                TargetMode = TargetMode.FrontInRoom,
+                TargetTeamType = Team.Type.Heroes,
+                ParamStatusEffects =
+                {
+                    new StatusEffectStackData
+                    {
+                        statusId = StatusEffectPoison2State.StatusId,
+                        count = 4
+                    }
+                }
             };
 
             new CardDataBuilder
@@ -161,26 +184,11 @@ namespace NewCards.Cards
 
             }.BuildAndRegister();
 
-            var Efect3 = new CardEffectDataBuilder
-            {
-                EffectStateType = typeof(CardEffectAddStatusEffect),
-                TargetMode = TargetMode.FrontInRoom,
-                TargetTeamType = Team.Type.Heroes,
-                ParamStatusEffects =
-                {
-                    new StatusEffectStackData
-                    {
-                        statusId = StatusEffectPoison2State.StatusId,
-                        count = 4
-                    }
-                }
-            };
-
             new CardDataBuilder
             {
                 Cost = 0,
                 CardType = CardType.Spell,
-                Rarity = CollectableRarity.Rare,
+                Rarity = CollectableRarity.Uncommon,
                 CardPoolIDs = { VanillaCardPoolIDs.MegaPool },
                 ClanID = VanillaClanIDs.Awoken,
 
@@ -194,7 +202,9 @@ namespace NewCards.Cards
 
                 EffectBuilders =
                 {
-                    Efect3
+                    Efect3,
+                    Efect1b,
+                    Efect2
                 }
             }.BuildAndRegister();
         }

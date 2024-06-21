@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using Trainworks.ConstantsV2;
+using static CombatManager;
 
 namespace NewCards.StatusEffects
 {
@@ -39,8 +40,11 @@ namespace NewCards.StatusEffects
             StatusEffectData sourceStatusEffectData = base.GetSourceStatusEffectData();
             parameters.vfxAtLoc = ((sourceStatusEffectData != null) ? sourceStatusEffectData.GetOnAffectedVFX() : null);
             parameters.showDamageVfx = true;
-            //combatManager.ApplyEffects();
+
             yield return combatManager.ApplyDamageToTarget(damageAmount, target, parameters);
+
+            
+
             yield break;
         }
 
