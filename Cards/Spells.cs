@@ -42,6 +42,11 @@ namespace NewCards.Cards
                 TargetMode = TargetMode.Hand,
             };
 
+            var Efect3 = new CardEffectDataBuilder
+            {//aplly 6 star shard 
+
+            };
+
             new CardDataBuilder
             {
                 Cost = 1,
@@ -76,21 +81,16 @@ namespace NewCards.Cards
                 },
             }.BuildAndRegister();
 
-            var Efect3 = new CardEffectDataBuilder
-            {//Create random spell
-
-            };
-
             new CardDataBuilder
             {
                 Cost = 1,
                 CardType = CardType.Spell,
-                Rarity = CollectableRarity.Uncommon,
+                Rarity = CollectableRarity.Common,
                 CardPoolIDs = { VanillaCardPoolIDs.MegaPool },
                 ClanID = VanillaClanIDs.Stygian,
 
                 CardID = NewCards.GUID + "TransferredKnowledge",
-                Name = "Transferred Knowledge",
+                Name = "Droping Star",
                 AssetPath = "assets/TransferredKnowledge.png",
 
                 TargetsRoom = true,
@@ -176,7 +176,7 @@ namespace NewCards.Cards
 
                 TargetsRoom = true,
                 Targetless = true,
-                Description = "Get [effect0.power] [coin]. Deal [effect1.power] damage to the front enemy unit. Draw +1 next turn.",
+                Description = "Get [effect0.power] [coin]. Deal [effect1.power] damage to the front enemy unit. [halfbreak]Draw +1 next turn.",
 
                 EffectBuilders =
                 {
@@ -204,7 +204,7 @@ namespace NewCards.Cards
 
                 TargetsRoom = true,
                 Targetless = true,
-                Description = "Apply <nobr><b>Poison</b> [effect0.status0.power]</nobr> to the front enemy unit.",
+                Description = "Deal [effect1.power] damage and apply <nobr><b>Poison [effect0.status0.power]</b></nobr> to the front enemy unit. [halfbreak]Draw +1 next turn.",
 
                 EffectBuilders =
                 {
