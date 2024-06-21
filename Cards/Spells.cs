@@ -115,10 +115,10 @@ namespace NewCards.Cards
         public static void MakeAwoken()
         {
             var Efect0 = new CardEffectDataBuilder
-            {//Get 5 Gold.
+            {//Get 10 Gold.
                 EffectStateType = typeof(CardEffectRewardGold),
                 TargetTeamType = Team.Type.None,
-                ParamInt = 5,
+                ParamInt = 10,
             };
 
             var Efect1 = new CardEffectDataBuilder
@@ -164,7 +164,10 @@ namespace NewCards.Cards
                 Cost = 0,
                 CardType = CardType.Spell,
                 Rarity = CollectableRarity.Rare,
-                CardPoolIDs = { VanillaCardPoolIDs.MegaPool },
+                CardPoolIDs = { 
+                    VanillaCardPoolIDs.MegaPool,
+                    VanillaCardPoolIDs.StingOnlyPool
+                },
                 ClanID = VanillaClanIDs.Awoken,
 
                 CardID = NewCards.GUID + "GoldenSting",
@@ -189,7 +192,10 @@ namespace NewCards.Cards
                 Cost = 0,
                 CardType = CardType.Spell,
                 Rarity = CollectableRarity.Uncommon,
-                CardPoolIDs = { VanillaCardPoolIDs.MegaPool },
+                CardPoolIDs = { 
+                    VanillaCardPoolIDs.MegaPool,
+                    VanillaCardPoolIDs.StingOnlyPool
+                },
                 ClanID = VanillaClanIDs.Awoken,
 
                 CardID = NewCards.GUID + "PoisonSting",
