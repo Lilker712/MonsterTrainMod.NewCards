@@ -184,6 +184,14 @@ namespace NewCards.Cards
                     Efect1,
                     Efect2
                 },
+                TraitBuilders =
+                {
+                    new CardTraitDataBuilder
+                    {
+                        TraitStateType = typeof(CardTraitExhaustState),
+                    }
+                }
+
 
             }.BuildAndRegister();
 
