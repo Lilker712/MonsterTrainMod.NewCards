@@ -102,7 +102,7 @@ namespace NewCards.Cards
                 CardPoolIDs = { VanillaCardPoolIDs.MegaPool, VanillaCardPoolIDs.AwokenBanner },
                 ClanID = VanillaClanIDs.Awoken,
 
-                CardID = NewCards.GUID + "Poisonous Sapwood",
+                CardID = NewCards.GUID + "PoisonousSapwood",
                 Name = "Poisonous Sapwood",
                 Description = "<b>Revenge:</b> apply <nobr><b>Poison [effect0.status0.power]</b></nobr>",
                 AssetPath = "assets/CardUnit.png",
