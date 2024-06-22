@@ -52,23 +52,23 @@ namespace NewCards.Cards
             var TrigEffect0 = new CardEffectDataBuilder
             {
                 EffectStateType = typeof(CardEffectAddStatusEffect),
-                TargetMode = TargetMode.Self,
-                TargetTeamType = Team.Type.Monsters,
+                TargetMode = TargetMode.LastAttackerCharacter,
+                TargetTeamType = Team.Type.Heroes,
                 ParamStatusEffects =
+                {
+                    new StatusEffectStackData
                     {
-                        new StatusEffectStackData
-                        {
-                            statusId = StatusEffectPoison2State.StatusId,
-                            count = 3,
-                        }
+                        statusId = StatusEffectPoison2State.StatusId,
+                        count = 3,
                     }
+                }
             };
 
             var Trigger0 = new CharacterTriggerDataBuilder
             {
                 TriggerID = NewCards.GUID + "TriggerPoisonousSapwoodUnit",
                 Trigger = CharacterTriggerData.Trigger.OnHit,
-                Description = "apply <nobr><b>Poison [effect0.status0.power]</b></nobr>",
+                Description = "Apply <nobr><b>Poison [effect0.status0.power]</b></nobr> to enemy units.",
                 EffectBuilders =
                 {
                     TrigEffect0,
@@ -104,7 +104,6 @@ namespace NewCards.Cards
 
                 CardID = NewCards.GUID + "PoisonousSapwood",
                 Name = "Poisonous Sapwood",
-                Description = "<b>Revenge:</b> apply <nobr><b>Poison [effect0.status0.power]</b></nobr>",
                 AssetPath = "assets/CardUnit.png",
 
                 TargetsRoom = true,
