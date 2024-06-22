@@ -32,9 +32,10 @@ namespace NewCards
         {
             Spells.MakeStygian();
             Spells.MakeAwoken();
-            Poison2.BuildAndRegister();
             Monsters.MakeAwoken();
-            //Testing.Make(); //for testing
+
+            Poison2.BuildAndRegister();
+            StarDrop.BuildAndRegister();
         }
 
         //adding cards to starting hand
