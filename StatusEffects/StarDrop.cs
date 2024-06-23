@@ -15,7 +15,7 @@ namespace NewCards.StatusEffects
                 DisplayCategory = StatusEffectData.DisplayCategory.Negative,
                 TriggerStage = StatusEffectData.TriggerStage.OnPreAttacked,
                 RemoveAtEndOfTurn = true,// test if remove one?
-                IconPath = "assets/status_StarDrop.png",
+                IconPath = "assets/status_poison.png",
                 ParamInt = 1,
             }.Build();
         }

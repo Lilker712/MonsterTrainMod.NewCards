@@ -44,7 +44,7 @@ namespace NewCards
         {
             static void Postfix(ref SaveManager __instance)
             {
-                var id = NewCards.GUID + "PoisonousSapwood";
+                var id = NewCards.GUID + "DropingStar";
                 __instance.AddCardToDeck(CustomCardManager.GetCardDataByID(id));
             }
         }

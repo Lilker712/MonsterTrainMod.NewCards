@@ -43,7 +43,22 @@ namespace NewCards.Cards
             };
 
             var Efect3 = new CardEffectDataBuilder
-            {//aplly 6 star shard 
+            {//aplly 6 Star Drop 
+                EffectStateType = typeof(CardEffectAddStatusEffect),
+                TargetMode = TargetMode.RandomInRoom,
+                TargetTeamType = Team.Type.Heroes,
+                ParamStatusEffects =
+                {
+                    new StatusEffectStackData
+                    {
+                        statusId = StatusEffectStarDropState.StatusId,
+                        count = 6
+                    }
+                }
+            };
+
+            var Efect4 = new CardEffectDataBuilder
+            {
 
             };
 
@@ -89,24 +104,25 @@ namespace NewCards.Cards
                 CardPoolIDs = { VanillaCardPoolIDs.MegaPool },
                 ClanID = VanillaClanIDs.Stygian,
 
-                CardID = NewCards.GUID + "TransferredKnowledge",
+                CardID = NewCards.GUID + "DropingStar",
                 Name = "Droping Star",
-                AssetPath = "assets/TransferredKnowledge.png",
+                AssetPath = "assets/TestCard.png",
+                Description = "Apply <nobr><b>Star Drop [effect0.status0.power]</b></nobr> to random enemy unit.",
 
                 TargetsRoom = true,
-                Targetless = true,
+                Targetless = false,
 
                 EffectBuilders =
                 {
-                    Efect1,
+                    Efect3,
                 },
 
-                TraitBuilders =
+                TraitBuilders = 
                 {
                     new CardTraitDataBuilder
                     {
-                        TraitStateType = typeof(CardTraitExhaustState),
-                    },
+                        TraitStateType = typeof(CardTraitTreasure),
+                    }
                 },
             }.BuildAndRegister();
 
@@ -164,7 +180,7 @@ namespace NewCards.Cards
                 Cost = 0,
                 CardType = CardType.Spell,
                 Rarity = CollectableRarity.Rare,
-                CardPoolIDs = { 
+                CardPoolIDs = {
                     VanillaCardPoolIDs.MegaPool,
                     VanillaCardPoolIDs.StingOnlyPool
                 },
@@ -200,7 +216,7 @@ namespace NewCards.Cards
                 Cost = 0,
                 CardType = CardType.Spell,
                 Rarity = CollectableRarity.Uncommon,
-                CardPoolIDs = { 
+                CardPoolIDs = {
                     VanillaCardPoolIDs.MegaPool,
                     VanillaCardPoolIDs.StingOnlyPool
                 },
