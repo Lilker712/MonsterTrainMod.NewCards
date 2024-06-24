@@ -4,11 +4,98 @@ using System.Text;
 using Trainworks.BuildersV2;
 using Trainworks.ConstantsV2;
 using NewCards.StatusEffects;
+using static CharacterTriggerData;
+using System.Linq;
 
 namespace NewCards.Cards
 {
     class Monsters
     {
+        public static void MakeStygian(){
+
+            var UpgradeEffect = new CardUpgradeDataBuilder {
+                UpgradeID = NewCards.GUID + "AddConsume",
+                TraitDataUpgradeBuilders =
+                {
+                    new CardTraitDataBuilder
+                    {
+                        TraitStateType = typeof(CardTraitExhaustState),
+                    }
+                },
+            };
+
+            var TrigEffect0 = new CardEffectDataBuilder
+            {
+                EffectStateType = typeof(CardEffectAddBattleCard),
+                TargetMode = TargetMode.Room,
+                TargetTeamType = Team.Type.None,
+                ParamInt = 3,
+                ParamCardPool = new CardPoolBuilder
+                {
+                    CardIDs = new List<string>
+                    {
+                        VanillaCardPoolIDs.MegaPool,
+                    },
+                }.Build(),
+                ParamCardUpgradeDataBuilder = UpgradeEffect,
+                ParamCardFilter = new CardUpgradeMaskDataBuilder
+                {
+                    CardType = CardType.Monster,
+                }.Build(),
+            };
+
+            var Trigger0 = new CharacterTriggerDataBuilder
+            {
+                TriggerID = NewCards.GUID + "TriggerSpellweaverSirenUnit",
+                Trigger = CharacterTriggerData.Trigger.PostCombat,
+                Description = "Create Random Spell card at end of the turn",
+                EffectBuilders =
+                {
+                    TrigEffect0,
+                }
+            };
+
+            var CreateUnit0 = new CardEffectDataBuilder
+            {
+                EffectStateType = typeof(CardEffectSpawnMonster),
+                TargetMode = TargetMode.DropTargetCharacter,
+                ParamCharacterDataBuilder = new CharacterDataBuilder
+                {
+                    CharacterID = NewCards.GUID + "SpellweaverSirenUnit",
+                    Name = "Spellweaver Siren",
+                    Size = 3,
+                    Health = 45,
+                    AttackDamage = 0,
+                    AssetPath = "assets/Unit.png",
+                    TriggerBuilders =
+                    {
+                        Trigger0,
+                    }
+                }
+            };
+
+            new CardDataBuilder
+            {
+                Cost = 1,
+                CardType = CardType.Monster,
+                Rarity = CollectableRarity.Rare,
+                CardPoolIDs = { VanillaCardPoolIDs.MegaPool, VanillaCardPoolIDs.StygianBanner },
+                ClanID = VanillaClanIDs.Stygian,
+
+                CardID = NewCards.GUID + "SpellweaverSiren",
+                Name = "Spellweaver Siren",
+                AssetPath = "assets/CardUnit.png",
+
+                TargetsRoom = true,
+                Targetless = false,
+
+                EffectBuilders =
+                {
+                    CreateUnit0,
+                }
+            }.BuildAndRegister();
+
+        }
         public static void MakeAwoken()
         {
             var TrigEffect0 = new CardEffectDataBuilder
@@ -37,7 +124,7 @@ namespace NewCards.Cards
                 }
             };
 
-            var Efect0 = new CardEffectDataBuilder
+            var CreateUnit0 = new CardEffectDataBuilder
             {
                 EffectStateType = typeof(CardEffectSpawnMonster),
                 TargetMode = TargetMode.DropTargetCharacter,
@@ -73,7 +160,7 @@ namespace NewCards.Cards
 
                 EffectBuilders =
                 {
-                    Efect0,
+                    CreateUnit0,
                 }
             }.BuildAndRegister();
 

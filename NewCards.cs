@@ -30,9 +30,16 @@ namespace NewCards
 
         public void Initialize()//dont forget about this
         {
-            Spells.MakeStygian();
+            //Spells.MakeHellhorned();
+            //Monsters.MakeHellhorned();
             Spells.MakeAwoken();
             Monsters.MakeAwoken();
+            Spells.MakeStygian();
+            Monsters.MakeStygian();
+            //Spells.MakeUmbra();
+            //Monsters.MakeUmbra();
+            //Spells.MakeMeltingRemnant();
+            //Monsters.MakeRemnant();
 
             Poison2.BuildAndRegister();
             StarDrop.BuildAndRegister();

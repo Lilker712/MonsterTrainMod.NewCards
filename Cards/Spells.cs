@@ -57,11 +57,6 @@ namespace NewCards.Cards
                 }
             };
 
-            var Efect4 = new CardEffectDataBuilder
-            {
-
-            };
-
             new CardDataBuilder
             {
                 Cost = 1,
@@ -218,7 +213,7 @@ namespace NewCards.Cards
                 Rarity = CollectableRarity.Uncommon,
                 CardPoolIDs = {
                     VanillaCardPoolIDs.MegaPool,
-                    VanillaCardPoolIDs.StingOnlyPool
+                    VanillaCardPoolIDs.StingOnlyPool,
                 },
                 ClanID = VanillaClanIDs.Awoken,
 
