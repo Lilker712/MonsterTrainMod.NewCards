@@ -212,7 +212,7 @@ namespace NewCards.Cards
                 CardType = CardType.Spell,
                 Rarity = CollectableRarity.Uncommon,
                 CardPoolIDs = {
-                    VanillaCardPoolIDs.MegaPool,
+                    //VanillaCardPoolIDs.MegaPool,
                     VanillaCardPoolIDs.StingOnlyPool,
                 },
                 ClanID = VanillaClanIDs.Awoken,
@@ -223,13 +223,12 @@ namespace NewCards.Cards
 
                 TargetsRoom = true,
                 Targetless = true,
-                Description = "Deal [effect1.power] damage and apply <nobr><b>Poison [effect0.status0.power]</b></nobr> to the front enemy unit. [halfbreak]Draw +1 next turn.",
+                Description = "Deal [effect1.power] damage and apply <nobr><b>Poison [effect0.status0.power]</b></nobr> to the front enemy unit.",
 
                 EffectBuilders =
                 {
                     Efect3,
                     Efect1b,
-                    Efect2
                 }
             }.BuildAndRegister();
         }

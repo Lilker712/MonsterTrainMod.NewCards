@@ -13,6 +13,7 @@ namespace NewCards.Cards
     {
         public static void MakeStygian(){
 
+            /*
             var UpgradeEffect = new CardUpgradeDataBuilder {
                 UpgradeID = NewCards.GUID + "AddConsume",
                 TraitDataUpgradeBuilders =
@@ -24,22 +25,27 @@ namespace NewCards.Cards
                 },
             };
 
+            CardPool cardPool0 = new CardPoolBuilder
+            {
+                CardPoolID = "all",
+                CardIDs = new List<string>
+                    {
+                        VanillaCardPoolIDs.MegaPool,
+                        //VanillaCardPoolIDs.StingOnlyPool,
+                    },
+            }.Build();
+
             var TrigEffect0 = new CardEffectDataBuilder
             {
                 EffectStateType = typeof(CardEffectAddBattleCard),
                 TargetMode = TargetMode.Room,
                 TargetTeamType = Team.Type.None,
                 ParamInt = 3,
-                ParamCardPool = new CardPoolBuilder
-                {
-                    CardIDs = new List<string>
-                    {
-                        VanillaCardPoolIDs.MegaPool,
-                    },
-                }.Build(),
+                ParamCardPool = cardPool0,
                 ParamCardUpgradeDataBuilder = UpgradeEffect,
                 ParamCardFilter = new CardUpgradeMaskDataBuilder
                 {
+                    CardUpgradeMaskID = "MinusMonster",
                     CardType = CardType.Monster,
                 }.Build(),
             };
@@ -47,7 +53,7 @@ namespace NewCards.Cards
             var Trigger0 = new CharacterTriggerDataBuilder
             {
                 TriggerID = NewCards.GUID + "TriggerSpellweaverSirenUnit",
-                Trigger = CharacterTriggerData.Trigger.PostCombat,
+                Trigger = Trigger.PostCombat,
                 Description = "Create Random Spell card at end of the turn",
                 EffectBuilders =
                 {
@@ -94,7 +100,84 @@ namespace NewCards.Cards
                     CreateUnit0,
                 }
             }.BuildAndRegister();
+            */
 
+            var TrigEffect1a = new CardEffectDataBuilder
+            {//apply to enemys 2 Stardrops
+                EffectStateType = typeof(CardEffectAddStatusEffect),
+                TargetMode = TargetMode.RandomInRoom,
+                TargetTeamType = Team.Type.Heroes,
+                ParamStatusEffects =
+                {
+                    new StatusEffectStackData
+                    {
+                        statusId = StatusEffectStarDropState.StatusId,
+                        count = 2,
+                    }
+                }
+            };
+
+            var TrigEffect1b = new CardEffectDataBuilder
+            {//apply 1 damage to enemy
+                EffectStateType = typeof(CardEffectDamage),
+                TargetMode = TargetMode.LastDamagedCharacters,
+                TargetTeamType = Team.Type.Heroes,
+                ParamInt = 1,
+            };
+
+            var Trigger1 = new CharacterTriggerDataBuilder
+            {
+                TriggerID = NewCards.GUID + "Trigger",
+                Trigger = CharacterTriggerData.Trigger.CardSpellPlayed,
+                Description = "Apply <nobr><b>Star Drop[effect0.status0.power]</b></nobr> and deal 1 damage to random enemy unit Two times",
+                EffectBuilders =
+                {
+                    TrigEffect1a,
+                    TrigEffect1b,
+                    TrigEffect1a,
+                    TrigEffect1b,
+                }
+            };
+
+            var CreateUnit1 = new CardEffectDataBuilder
+            {
+                EffectStateType = typeof(CardEffectSpawnMonster),
+                TargetMode = TargetMode.DropTargetCharacter,
+                ParamCharacterDataBuilder = new CharacterDataBuilder
+                {
+                    CharacterID = NewCards.GUID + "StarfallSorcererUnit",
+                    Name = "Starfall Sorcerer",
+                    Size = 1,
+                    Health = 1,
+                    AttackDamage = 0,
+                    AssetPath = "assets/Unit.png",
+                    TriggerBuilders =
+                    {
+                        Trigger1,
+                    }
+                }
+            };
+
+            new CardDataBuilder
+            {
+                Cost = 2,
+                CardType = CardType.Monster,
+                Rarity = CollectableRarity.Uncommon,
+                CardPoolIDs = { VanillaCardPoolIDs.MegaPool, VanillaCardPoolIDs.StygianBanner },
+                ClanID = VanillaClanIDs.Stygian,
+
+                CardID = NewCards.GUID + "StarfallSorcerer ",
+                Name = "Starfall Sorcerer ",
+                AssetPath = "assets/CardUnit.png",
+
+                TargetsRoom = true,
+                Targetless = false,
+
+                EffectBuilders =
+                {
+                    CreateUnit1,
+                }
+            }.BuildAndRegister();
         }
         public static void MakeAwoken()
         {
