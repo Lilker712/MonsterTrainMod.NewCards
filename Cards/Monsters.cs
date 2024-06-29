@@ -102,7 +102,7 @@ namespace NewCards.Cards
             }.BuildAndRegister();
             */
 
-            var TrigEffect1a = new CardEffectDataBuilder
+            var TrigEffect1 = new CardEffectDataBuilder
             {//apply to enemys 2 Stardrops
                 EffectStateType = typeof(CardEffectAddStatusEffect),
                 TargetMode = TargetMode.RandomInRoom,
@@ -117,25 +117,16 @@ namespace NewCards.Cards
                 }
             };
 
-            var TrigEffect1b = new CardEffectDataBuilder
-            {//apply 1 damage to enemy
-                EffectStateType = typeof(CardEffectDamage),
-                TargetMode = TargetMode.LastDamagedCharacters,
-                TargetTeamType = Team.Type.Heroes,
-                ParamInt = 1,
-            };
-
             var Trigger1 = new CharacterTriggerDataBuilder
             {
-                TriggerID = NewCards.GUID + "Trigger",
+                TriggerID = NewCards.GUID + "Trigger1",
                 Trigger = CharacterTriggerData.Trigger.CardSpellPlayed,
-                Description = "Apply <nobr><b>Star Drop[effect0.status0.power]</b></nobr> and deal 1 damage to random enemy unit Two times",
+                Description = "Apply <nobr><b>Star Drop[effect0.status0.power]</b></nobr>to random enemy unit Three times",
                 EffectBuilders =
                 {
-                    TrigEffect1a,
-                    TrigEffect1b,
-                    TrigEffect1a,
-                    TrigEffect1b,
+                    TrigEffect1,
+                    TrigEffect1,
+                    TrigEffect1,
                 }
             };
 
@@ -166,7 +157,7 @@ namespace NewCards.Cards
                 CardPoolIDs = { VanillaCardPoolIDs.MegaPool, VanillaCardPoolIDs.StygianBanner },
                 ClanID = VanillaClanIDs.Stygian,
 
-                CardID = NewCards.GUID + "StarfallSorcerer ",
+                CardID = NewCards.GUID + "StarfallSorcerer",
                 Name = "Starfall Sorcerer ",
                 AssetPath = "assets/CardUnit.png",
 

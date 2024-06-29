@@ -43,6 +43,8 @@ namespace NewCards
 
             Poison2.BuildAndRegister();
             StarDrop.BuildAndRegister();
+            Weaken.BuildAndRegister();
+
         }
 
         //adding cards to starting hand
@@ -51,7 +53,7 @@ namespace NewCards
         {
             static void Postfix(ref SaveManager __instance)
             {
-                var id = NewCards.GUID + "StarfallSorcerer";
+                var id = NewCards.GUID + "PoisonSting";
                 __instance.AddCardToDeck(CustomCardManager.GetCardDataByID(id));
             }
         }

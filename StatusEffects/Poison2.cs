@@ -15,7 +15,8 @@ namespace NewCards.StatusEffects
                 DisplayCategory = StatusEffectData.DisplayCategory.Negative,
                 TriggerStage = StatusEffectData.TriggerStage.OnPostCombatPoison,
                 RemoveAtEndOfTurn = false,
-                IconPath = "assets/status_poison.png",
+                RemoveStackAtEndOfTurn = false,
+                IconPath = "assets/PoisonStatus.png",
                 ParamInt = 1,
             }.Build();
         }

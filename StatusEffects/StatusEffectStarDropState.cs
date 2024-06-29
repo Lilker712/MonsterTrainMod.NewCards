@@ -7,7 +7,7 @@ using static CombatManager;
 
 namespace NewCards.StatusEffects
 {
-    public class StatusEffectStarDropState : StatusEffectState, IDamageStatusEffect
+    public class StatusEffectStarDropState : StatusEffectState
     {
         public const string StatusId = NewCards.GUID + "StarDrop";
 

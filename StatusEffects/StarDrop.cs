@@ -14,8 +14,9 @@ namespace NewCards.StatusEffects
                 Description = "Unit takes additional damage equal to the number of Star Drop stacks when attacked by spell",
                 DisplayCategory = StatusEffectData.DisplayCategory.Negative,
                 TriggerStage = StatusEffectData.TriggerStage.OnPreAttacked,
-                RemoveAtEndOfTurn = true,// test if remove one?
-                IconPath = "assets/status_poison.png",
+                RemoveAtEndOfTurn = false,
+                RemoveStackAtEndOfTurn = true,
+                IconPath = "assets/PoisonStatus.png",
                 ParamInt = 1,
             }.Build();
         }

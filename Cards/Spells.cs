@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Trainworks.BuildersV2;
 using Trainworks.ConstantsV2;
-using static CharacterTriggerData;
-using static Trainworks.Constants.VanillaCardPoolIDs;
 using NewCards.StatusEffects;
 
 namespace NewCards.Cards
