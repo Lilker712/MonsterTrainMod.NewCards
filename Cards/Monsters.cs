@@ -6,14 +6,14 @@ using Trainworks.ConstantsV2;
 using NewCards.StatusEffects;
 using static CharacterTriggerData;
 using System.Linq;
+using Trainworks.Managers;
 
 namespace NewCards.Cards
 {
     class Monsters
     {
         public static void MakeStygian(){
-
-            /*
+            
             var UpgradeEffect = new CardUpgradeDataBuilder {
                 UpgradeID = NewCards.GUID + "AddConsume",
                 TraitDataUpgradeBuilders =
@@ -25,28 +25,19 @@ namespace NewCards.Cards
                 },
             };
 
-            CardPool cardPool0 = new CardPoolBuilder
-            {
-                CardPoolID = "all",
-                CardIDs = new List<string>
-                    {
-                        VanillaCardPoolIDs.MegaPool,
-                        //VanillaCardPoolIDs.StingOnlyPool,
-                    },
-            }.Build();
-
             var TrigEffect0 = new CardEffectDataBuilder
             {
                 EffectStateType = typeof(CardEffectAddBattleCard),
-                TargetMode = TargetMode.Room,
-                TargetTeamType = Team.Type.None,
-                ParamInt = 3,
-                ParamCardPool = cardPool0,
+                //TargetMode = TargetMode.Room,
+                //TargetTeamType = Team.Type.None,
+                ParamInt = (int)CardPile.HandPile,
+                ParamCardPool = CustomCardPoolManager.GetMegaPool(),
                 ParamCardUpgradeDataBuilder = UpgradeEffect,
+                FilterBasedOnMainSubClass = true,
                 ParamCardFilter = new CardUpgradeMaskDataBuilder
                 {
-                    CardUpgradeMaskID = "MinusMonster",
-                    CardType = CardType.Monster,
+                    CardUpgradeMaskID = "OnlySpells",
+                    CardType = CardType.Spell,
                 }.Build(),
             };
 
@@ -90,7 +81,7 @@ namespace NewCards.Cards
 
                 CardID = NewCards.GUID + "SpellweaverSiren",
                 Name = "Spellweaver Siren",
-                AssetPath = "assets/CardUnit.png",
+                AssetPath = "assets/TestCard.png",
 
                 TargetsRoom = true,
                 Targetless = false,
@@ -100,7 +91,7 @@ namespace NewCards.Cards
                     CreateUnit0,
                 }
             }.BuildAndRegister();
-            */
+            
 
             var TrigEffect1 = new CardEffectDataBuilder
             {//apply to enemys 2 Stardrops

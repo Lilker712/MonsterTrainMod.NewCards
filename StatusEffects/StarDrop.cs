@@ -16,7 +16,7 @@ namespace NewCards.StatusEffects
                 TriggerStage = StatusEffectData.TriggerStage.OnPreAttacked,
                 RemoveAtEndOfTurn = false,
                 RemoveStackAtEndOfTurn = true,
-                IconPath = "assets/PoisonStatus.png",
+                IconPath = "assets/StarDropStatus.png",
                 ParamInt = 1,
             }.Build();
         }

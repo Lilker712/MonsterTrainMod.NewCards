@@ -75,7 +75,7 @@ namespace NewCards.Cards
                     {
                         TriggerID = NewCards.GUID + "Triger" + "IceCrystal",
                         Trigger = CardTriggerType.OnUnplayed,
-                        Description = "Your Pyre takes [effect0.power] damage, apply [frostbite] [effect1.status0.power] to enemy units and apply [freeze] to a random card",
+                        Description = "Your Pyre takes [effect0.power] damage, apply [frostbite] [effect1.status0.power] to enemy units in current room and apply [freeze] to a random card",
                         CardEffectBuilders = { Efect0, Efect1, Efect2 },
                     },
                 },

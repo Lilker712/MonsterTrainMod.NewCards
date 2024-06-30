@@ -43,7 +43,6 @@ namespace NewCards
 
             Poison2.BuildAndRegister();
             StarDrop.BuildAndRegister();
-            Weaken.BuildAndRegister();
 
         }
 
@@ -53,7 +52,7 @@ namespace NewCards
         {
             static void Postfix(ref SaveManager __instance)
             {
-                var id = NewCards.GUID + "PoisonSting";
+                var id = NewCards.GUID + "SpellweaverSiren";
                 __instance.AddCardToDeck(CustomCardManager.GetCardDataByID(id));
             }
         }
