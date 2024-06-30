@@ -16,7 +16,8 @@ namespace NewCards.StatusEffects
                 TriggerStage = StatusEffectData.TriggerStage.OnPreAttacked,
                 RemoveAtEndOfTurn = false,
                 RemoveStackAtEndOfTurn = true,
-                IconPath = "assets/StarDropStatus.png",
+                IconPath = "assets/StarDropStatus_a.png",
+                TooltipIconPath = "assets/StarDropStatus.png",
                 ParamInt = 1,
             }.Build();
         }

@@ -52,7 +52,7 @@ namespace NewCards
         {
             static void Postfix(ref SaveManager __instance)
             {
-                var id = NewCards.GUID + "SpellweaverSiren";
+                var id = NewCards.GUID + "PoisonSting";
                 __instance.AddCardToDeck(CustomCardManager.GetCardDataByID(id));
             }
         }
