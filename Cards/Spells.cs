@@ -20,7 +20,7 @@ namespace NewCards.Cards
             };
 
             var Efect1 = new CardEffectDataBuilder
-            {//nakłada 1 FrostBite
+            {//nakłada 3 FrostBite
                 EffectStateType = typeof(CardEffectAddStatusEffect),
                 TargetMode = TargetMode.Room,
                 TargetTeamType = Team.Type.Heroes,
@@ -29,7 +29,7 @@ namespace NewCards.Cards
                     new StatusEffectStackData
                     {
                         statusId = VanillaStatusEffectIDs.Frostbite,
-                        count = 1
+                        count = 3
                     }
                 }
             };
@@ -66,6 +66,7 @@ namespace NewCards.Cards
                 CardID = NewCards.GUID + "IceCrystal",
                 Name = "Ice Crystal",
                 AssetPath = "assets/IceCrystal.png",
+                Description = "Apply [frostbite] [effect0.status0.power] to enemy units.",
 
                 TargetsRoom = true,
                 Targetless = true,
@@ -75,9 +76,14 @@ namespace NewCards.Cards
                     {
                         TriggerID = NewCards.GUID + "Triger" + "IceCrystal",
                         Trigger = CardTriggerType.OnUnplayed,
-                        Description = "Your Pyre takes [effect0.power] damage, apply [frostbite] [effect1.status0.power] to enemy units in current room and apply [freeze] to a random card",
-                        CardEffectBuilders = { Efect0, Efect1, Efect2 },
+                        Description = "Your Pyre takes [effect0.power] damage and apply [freeze] to a random card",
+                        CardEffectBuilders = { Efect0, Efect2 },
                     },
+                },
+
+                EffectBuilders =
+                {
+                    Efect1,
                 },
 
                 TraitBuilders = new List<CardTraitDataBuilder>

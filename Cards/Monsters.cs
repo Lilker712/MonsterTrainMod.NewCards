@@ -150,7 +150,7 @@ namespace NewCards.Cards
 
                 CardID = NewCards.GUID + "StarfallSorcerer",
                 Name = "Starfall Sorcerer ",
-                AssetPath = "assets/CardUnit.png",
+                AssetPath = "assets/TestCard.png",
 
                 TargetsRoom = true,
                 Targetless = false,
